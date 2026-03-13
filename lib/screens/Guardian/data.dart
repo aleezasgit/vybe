@@ -1,4 +1,4 @@
-part of '../guardian.dart';
+part of 'guardian.dart';
 
 
  const List<Map<String, dynamic>> _guardians = [

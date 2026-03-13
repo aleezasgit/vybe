@@ -18,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
 
     return ChangeNotifierProvider<_ScreenState>(
       create: (_) => _ScreenState(),
-      child: const _body(),
+      child: const _Body(),
     );
   }
 }

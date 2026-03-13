@@ -8,19 +8,19 @@ class _Body extends StatelessWidget {
       'title': 'Free Entry Friday',
       'subtitle': 'The Velvet Room',
       'points': 500,
-      'imagePath': 'assets/pngs/reward_1.png',
+      'imagePath': 'assets/pngs/Ellipse 1990.png',
     },
     {
       'title': '2-for-1 Cocktails',
       'subtitle': 'Neon Garden',
       'points': 800,
-      'imagePath': 'assets/pngs/reward_2.png',
+      'imagePath': 'assets/pngs/Ellipse 1990.png',
     },
     {
       'title': 'VIP Booth Upgrade',
       'subtitle': 'Neon Garden',
       'points': 900,
-      'imagePath': 'assets/pngs/reward_3.png',
+      'imagePath': 'assets/pngs/Ellipse 1990.png',
     },
   ];
 
@@ -43,7 +43,7 @@ class _Body extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Space.yf(24),
+                Space.yf(16),
 
                 // ─── Available Points ─────────────────────────────────
                 Center(
@@ -51,26 +51,24 @@ class _Body extends StatelessWidget {
                     children: [
                       Text(
                         'Available Points',
-                        style: AppText.b1?.cl(AppTheme.c.text.main!),
+                        style: AppText.h5?.w(4).cl(AppTheme.c.text.main!),
                       ),
-                      Space.yf(8),
+                      Space.yf(5),
                       Text(
                         '2,450',
                         style: AppText.h1b,
                       ),
-                      Space.yf(12),
+                      Space.yf(5),
 
                       // ─── Points chip ──────────────────────────────
                       Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 8.h,
-                        ),
+                        padding:Space.all(17,10)
+                        ,
                         decoration: BoxDecoration(
-                          color: Colors.transparent,
+                          color: AppTheme.c.background.main,
                           borderRadius: BorderRadius.circular(100.r),
                           border: Border.all(
-                            color: AppTheme.c.primary.main!,
+                            color: AppTheme.c.lightGrey.main!,
                             width: 1.w,
                           ),
                         ),
@@ -79,17 +77,14 @@ class _Body extends StatelessWidget {
                           children: [
                             SvgPicture.asset("assets/svgs/star.svg"
                             ,
-                              width: 16.w,
-                              height: 16.w,
-                              colorFilter: ColorFilter.mode(
-                                AppTheme.c.primary.main!,
-                                BlendMode.srcIn,
-                              ),
+                              width: 18.w,
+                              height: 18.w,
+                            
                             ),
-                            Space.xf(6),
+                            Space.xf(5),
                             Text(
                               'Points',
-                              style: AppText.l1bm?.cl(AppTheme.c.primary.main!),
+                              style: AppText.l1?.w(4).cl(AppTheme.c.primary.main!),
                             ),
                           ],
                         ),
@@ -98,28 +93,28 @@ class _Body extends StatelessWidget {
                   ),
                 ),
 
-                Space.yf(28),
+                Space.yf(16),
 
                 // ─── Earn Points Row ──────────────────────────────────
                 Row(
                   children: [
                     _EarnCard(label: 'Check-In', points: '+50 pts'),
-                    Space.xf(10),
+                    Space.xf(11),
                     _EarnCard(label: 'Review', points: '+100 pts'),
-                    Space.xf(10),
+                    Space.xf(11),
                     _EarnCard(label: 'Upload', points: '+150 pts'),
                   ],
                 ),
 
-                Space.yf(28),
+                Space.yf(14),
 
                 // ─── Redeem Your Rewards ──────────────────────────────
                 Text(
                   'Redeem Your Rewards',
-                  style: AppText.b1b,
+                  style: AppText.b1b?.w(6),
                 ),
 
-                Space.yf(14),
+                Space.yf(8),
 
                 ListView.separated(
                   shrinkWrap: true,
@@ -137,16 +132,18 @@ class _Body extends StatelessWidget {
                   },
                 ),
 
-                Space.yf(28),
+                Space.yf(16),
 
                 // ─── Redeem Button ────────────────────────────────────
                 AppButton(
                   label: 'Redeem Points',
                   onPressed: () {},
                   hasShadow: false,
+
+                  backgroundColor: AppTheme.c.primary.main,
                 ),
 
-                Space.yf(32),
+                Space.yf(32), 
               ],
             ),
           ),
@@ -176,7 +173,7 @@ class _EarnCard extends StatelessWidget {
         padding: Space.all(12),
         decoration: BoxDecoration(
           color: AppTheme.c.background.main,
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(12.r),
           border: Border.all(
             color: AppTheme.c.lightGrey.main!,
             width: 1.w,
@@ -187,12 +184,12 @@ class _EarnCard extends StatelessWidget {
           children: [
             Text(
               label,
-              style: AppText.l1?.cl(AppTheme.c.text.main!),
+              style: AppText.l1?.w(4).cl(AppTheme.c.text.main!),
             ),
-            Space.yf(4),
+            Space.yf(8),
             Text(
               points,
-              style: AppText.b1b,
+              style: AppText.h5?.w(4),
             ),
           ],
         ),
@@ -221,10 +218,10 @@ class _RewardTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: Space.all(12),
+      padding: Space.all(7),
       decoration: BoxDecoration(
         color: AppTheme.c.background.main,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
           color: AppTheme.c.lightGrey.main!,
           width: 1.w,
@@ -234,16 +231,16 @@ class _RewardTile extends StatelessWidget {
         children: [
           // Image
           ClipRRect(
-            borderRadius: BorderRadius.circular(10.r),
+            borderRadius: BorderRadius.circular(8.r),
             child: Image.asset(
               imagePath,
-              width: 58.w,
-              height: 58.w,
+              width: 57.w,
+              height: 57.w,
               fit: BoxFit.cover,
             ),
           ),
 
-          Space.xf(12),
+          Space.xf(8),
 
           // Title & subtitle
           Expanded(
@@ -252,32 +249,30 @@ class _RewardTile extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: AppText.b1b,
+                  style: AppText.b1b?.w(6),
                 ),
-                Space.yf(4),
+                Space.yf(3),
                 Text(
                   subtitle,
-                  style: AppText.l1?.cl(AppTheme.c.text.main!),
+                  style: AppText.l1?.w(4).cl(AppTheme.c.text.main!),
                 ),
               ],
             ),
           ),
 
-          Space.xf(10),
+          Space.xf(16),
 
           // Points chip
           Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 14.w,
-              vertical: 8.h,
-            ),
+            padding:Space.all(12,7),
+            
             decoration: BoxDecoration(
               color: AppTheme.c.primary.main,
-              borderRadius: BorderRadius.circular(100.r),
+              borderRadius: BorderRadius.circular(16.r),
             ),
             child: Text(
               '$points PTS',
-              style: AppText.l1b?.cl(AppTheme.c.white!),
+              style: AppText.l1bm?.cl(AppTheme.c.white!),
             ),
           ),
         ],

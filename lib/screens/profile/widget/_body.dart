@@ -92,13 +92,14 @@ class _Body extends StatelessWidget {
                   iconPath: 'assets/svgs/trash.svg',
                   iconColor: AppTheme.c.white,
                   buttonType: ButtonType.primaryWithIconLeft,
-                  hasShadow: true,
+                  hasShadow: false,
                 ),
 
                 Space.yf(12),
 
                 // ─── Logout ──────────────────────────────────────────
                 AppButton(
+                
                   label: 'Logout',
                   onPressed: () {
                     ConfirmBottomSheet.show(
@@ -196,25 +197,17 @@ class _PremiumBanner extends StatelessWidget {
       onTap: () {},
       child: Container(
         width: double.infinity,
-        padding: Space.all(16),
+        padding: Space.all(14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(65.r),
-          gradient: LinearGradient(
-            colors: [
-              AppTheme.c.primary.shade500!,
-              AppTheme.c.primary.main!,
-              AppTheme.c.secondary.shade600!,
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.centerLeft,
-          ),
+          gradient: UIProps.primaryGradient
         ),
         child: Row(
           children: [
             // Crown icon circle
             Container(
               width: 42.w,
-              height: 42.w,
+              height: 42.h,
               decoration: BoxDecoration(
                 color: AppTheme.c.background.main,
                 shape: BoxShape.circle,
@@ -279,7 +272,7 @@ class _OptionTile extends StatelessWidget {
         width: double.infinity,
         padding: Space.all(15),
         decoration: BoxDecoration(
-          color: AppTheme.c.background.main,
+          color:Color( 0xFF050815),
           borderRadius: BorderRadius.circular(16.r),
           border: Border.all(
             color: AppTheme.c.lightGrey.main!,
@@ -292,7 +285,7 @@ class _OptionTile extends StatelessWidget {
             SvgPicture.asset(
               iconPath,
               width: 23.w,
-              height: 23.w,
+              height: 23.h,
             ),
 
             Space.xf(10),
@@ -309,7 +302,7 @@ class _OptionTile extends StatelessWidget {
             SvgPicture.asset(
               AppStaticData.arrowRight,
               width: 23.w,
-              height: 23.w,
+              height: 23.h,
             ),
           ],
         ),

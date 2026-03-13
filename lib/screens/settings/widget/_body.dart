@@ -1,7 +1,7 @@
 part of '../settings.dart';
 
-class _body extends StatelessWidget {
-  const _body();
+class _Body extends StatelessWidget {
+  const _Body();
 
   @override
   Widget build(BuildContext context) {

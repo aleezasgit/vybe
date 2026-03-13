@@ -84,7 +84,9 @@ class AppButton extends StatelessWidget {
                 )
               : null,
           boxShadow: hasShadow ? UIProps.buttonShadow : null,
-          gradient: _isOutlined ? null : UIProps.primaryGradient,
+        gradient: _isOutlined || backgroundColor != null
+              ? null
+              : UIProps.primaryGradient,
         ),
         padding: Space.vf(verticalPadding ?? 15.5),
         child: Row(

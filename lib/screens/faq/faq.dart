@@ -18,7 +18,7 @@ class FaqScreen extends StatelessWidget {
 
     return ChangeNotifierProvider<_ScreenState>(
       create: (_) => _ScreenState(),
-      child:  _body()
+      child:  _Body()
     );
   }
 }
