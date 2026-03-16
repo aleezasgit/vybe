@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:vybe_app/configs/configs.dart';
 import 'package:vybe_app/router/routes.dart';
 import 'package:vybe_app/screens/Guardian/guardian.dart';
 import 'package:vybe_app/screens/faq/faq.dart';
 import 'package:vybe_app/screens/onboarding/onboarding.dart';
+import 'package:vybe_app/screens/policy/policy.dart';
 import 'package:vybe_app/screens/profile/profile.dart';
 import 'package:vybe_app/screens/rewards/rewards.dart';
 import 'package:vybe_app/screens/rewards_detail/rewards_detail.dart';
 import 'package:vybe_app/screens/settings/settings.dart';
 
 import 'package:vybe_app/screens/splash/splash.dart';
+import 'package:vybe_app/screens/support/support.dart';
 
 final Map<String, Widget Function(dynamic)> appRoutes = {
   AppRoutes.splash: (_) => const SplashScreen(),
@@ -19,6 +22,9 @@ final Map<String, Widget Function(dynamic)> appRoutes = {
     AppRoutes.guardian: (_) => const GuardianNetworkScreen(),
     AppRoutes.rewards: (_) => const RewardsScreen(),
     AppRoutes.rewardsdetail: (_) => const RewardDetailScreen(),
+    AppRoutes.support: (_) => const SupportScreen(),
+    AppRoutes.privacyPolicy: (_) => const PrivacyPolicyScreen(),
+
 };
 
 void navigateToScreen(BuildContext context, Widget screen) {

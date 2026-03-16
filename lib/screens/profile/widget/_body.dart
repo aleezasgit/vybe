@@ -17,7 +17,11 @@ class _Body extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CustomAppBar(title: 'Profile'),
+              Expanded(
+                child: SingleChildScrollView(
             padding: Space.hf(24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,6 +126,9 @@ class _Body extends StatelessWidget {
                 Space.yf(32),
               ],
             ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

@@ -83,12 +83,26 @@ class AppButton extends StatelessWidget {
                   strokeAlign: BorderSide.strokeAlignInside,
                 )
               : null,
-          boxShadow: hasShadow ? UIProps.buttonShadow : null,
-        gradient: _isOutlined || backgroundColor != null
+          boxShadow:
+              buttonType == ButtonType.outlined ||
+                  buttonType == ButtonType.outlinedWithIconRight ||
+                  buttonType == ButtonType.outlinedWithIconLeft
+              ? null
+              : hasShadow
+              ? UIProps.buttonShadow
+              : null,
+          gradient: _isOutlined || backgroundColor != null
               ? null
               : UIProps.primaryGradient,
         ),
-        padding: Space.vf(verticalPadding ?? 15.5),
+        padding: Space.vf(
+          verticalPadding ??
+              (buttonType == ButtonType.outlined ||
+                      buttonType == ButtonType.outlinedWithIconRight ||
+                      buttonType == ButtonType.outlinedWithIconLeft
+                  ? 16
+                  : 15.5),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,

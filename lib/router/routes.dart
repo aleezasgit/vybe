@@ -7,5 +7,6 @@ abstract class AppRoutes {
   static const guardian = '/guardian';
   static const rewards = '/rewards';
   static const rewardsdetail = '/rewardsdetail';
-
+  static const support = '/support';
+  static const privacyPolicy = '/privacy-policy';
 }

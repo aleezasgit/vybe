@@ -77,7 +77,7 @@ abstract class UIProps {
 
   static void initShadows() {
     cardShadow = [
-      BoxShadow(color: Color(0x0D3F3C36), blurRadius: 16, offset: Offset(0, 8)),
+      BoxShadow(color: Color(0x0F0D0D12), blurRadius: 2, offset: Offset(0, 1)),
     ];
     buttonShadow = [
       BoxShadow(
@@ -107,14 +107,18 @@ abstract class UIProps {
   static void initGradient(BuildContext context) {
     primaryGradient = LinearGradient(
       colors: [
-        AppTheme.c.primaryGradient.startColor.withValues(alpha: 0.5),
         Color.lerp(
-          AppTheme.c.primaryGradient.startColor.withValues(alpha: 0.5),
+          AppTheme.c.primaryGradient.startColor,
+          const Color(0xFF6B53DD),
+          0.5,
+        )!,
+        Color.lerp(
+          AppTheme.c.primaryGradient.startColor,
           AppTheme.c.primaryGradient.endColor,
           0.5,
         )!,
         Color.lerp(
-          AppTheme.c.primaryGradient.startColor.withValues(alpha: 0.5),
+          AppTheme.c.primaryGradient.startColor,
           AppTheme.c.primaryGradient.endColor,
           0.75,
         )!,

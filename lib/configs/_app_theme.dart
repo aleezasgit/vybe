@@ -41,7 +41,6 @@ class AppTheme {
       shade200: const Color(0xFF1D2334), //
       shade400: const Color(0xFF121620), //
       shade500: const Color(0xFF090B10), //
-      
 
       main: const Color(0xFF141824), // background
     ),
@@ -83,7 +82,7 @@ class AppTheme {
 
     // SINGLE COLORS (no shades)
     white: const Color(0xFFFFFFFF), //
-    black: const Color(0xFF1B1A1F), //
+    black: const Color(0xFF000000), //
   );
 
   static AppCoreTheme light = _core;
