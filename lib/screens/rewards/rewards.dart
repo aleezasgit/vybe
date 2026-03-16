@@ -10,7 +10,7 @@ import 'package:vybe_app/widgets/design/buttons/app_button/app_button.dart';
 
 part 'widget/_body.dart';
 part '_state.dart';
-part 'data.dart';
+
 
 class RewardsScreen extends StatelessWidget {
   const RewardsScreen({super.key});

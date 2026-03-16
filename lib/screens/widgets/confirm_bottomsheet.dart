@@ -164,7 +164,7 @@ class ConfirmBottomSheet extends StatelessWidget {
               label: confirmLabel,
               onPressed: onConfirm,
               backgroundColor: confirmBgColor,
-              hasShadow: true,
+              hasShadow: false,
             ),
 
             Space.yf(12),
@@ -174,7 +174,7 @@ class ConfirmBottomSheet extends StatelessWidget {
               label: 'Cancel',
               onPressed: onCancel ?? () => Navigator.pop(context),
               buttonType: ButtonType.outlined,
-              hasShadow: false,
+            
             ),
 
             Space.yf(24),

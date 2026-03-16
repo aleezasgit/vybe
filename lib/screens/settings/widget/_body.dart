@@ -76,7 +76,7 @@ class _Body extends StatelessWidget {
                   iconPath: 'assets/svgs/trash.svg',
                   iconColor: AppTheme.c.white,
                   buttonType: ButtonType.primaryWithIconLeft,
-                  hasShadow: true,
+                  hasShadow: false,
                 ),
 
                 Space.yf(12),
@@ -88,7 +88,7 @@ class _Body extends StatelessWidget {
                   buttonType: ButtonType.primaryWithIconLeft,
                   iconPath: 'assets/svgs/logout.svg',
                   iconColor: AppTheme.c.white,
-                  hasShadow: false,
+                  hasShadow: true,
                 ),
 
                 Space.yf(32),
@@ -160,14 +160,9 @@ class _UserCard extends StatelessWidget {
             child: Container(
               padding: Space.all(16, 7),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppTheme.c.primary.shade500!,
-                    AppTheme.c.primary.main!,
-                  ],
-                  begin: Alignment.center,
-                  end: Alignment.bottomRight,
-                ),
+               gradient: UIProps.primaryGradient,
+                
+               
                 borderRadius: BorderRadius.circular(16.r),
               ),
               child: Text(

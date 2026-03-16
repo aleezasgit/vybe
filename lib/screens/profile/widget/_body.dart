@@ -101,6 +101,7 @@ class _Body extends StatelessWidget {
                 AppButton(
                 
                   label: 'Logout',
+                  hasShadow: true,
                   onPressed: () {
                     ConfirmBottomSheet.show(
   context,
@@ -115,7 +116,7 @@ class _Body extends StatelessWidget {
                   buttonType: ButtonType.primaryWithIconLeft,
                   iconPath: 'assets/svgs/logout.svg',
                   iconColor: AppTheme.c.white,
-                  hasShadow: false,
+                 
                 ),
 
                 Space.yf(32),

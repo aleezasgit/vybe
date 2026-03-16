@@ -5,6 +5,7 @@ import 'package:vybe_app/screens/faq/faq.dart';
 import 'package:vybe_app/screens/onboarding/onboarding.dart';
 import 'package:vybe_app/screens/profile/profile.dart';
 import 'package:vybe_app/screens/rewards/rewards.dart';
+import 'package:vybe_app/screens/rewards_detail/rewards_detail.dart';
 import 'package:vybe_app/screens/settings/settings.dart';
 
 import 'package:vybe_app/screens/splash/splash.dart';
@@ -17,7 +18,7 @@ final Map<String, Widget Function(dynamic)> appRoutes = {
     AppRoutes.faq: (_) => const FaqScreen(),
     AppRoutes.guardian: (_) => const GuardianNetworkScreen(),
     AppRoutes.rewards: (_) => const RewardsScreen(),
-
+    AppRoutes.rewardsdetail: (_) => const RewardDetailScreen(),
 };
 
 void navigateToScreen(BuildContext context, Widget screen) {

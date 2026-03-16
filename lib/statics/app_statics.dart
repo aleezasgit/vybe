@@ -8,6 +8,7 @@ class AppStaticData {
   static const String appBg = 'assets/pngs/splash_bg.png';
   static const String upwardArrow = 'assets/svgs/Notification Icon.svg';
   static const String close = 'assets/svgs/close.svg';
+  static const String checked ='assets/svgs/Check (1).svg';
   
 
 }

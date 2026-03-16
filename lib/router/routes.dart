@@ -6,5 +6,6 @@ abstract class AppRoutes {
   static const faq = '/faq';
   static const guardian = '/guardian';
   static const rewards = '/rewards';
+  static const rewardsdetail = '/rewardsdetail';
 
 }

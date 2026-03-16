@@ -61,11 +61,11 @@ class _Body extends StatelessWidget {
                     children: [
                       // ─── Hero Image ──────────────────────────────
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(16.r),
+                        borderRadius: BorderRadius.circular(12.r),
                         child: Image.asset(
-                          'assets/pngs/reward_1.png',
-                          width: double.infinity,
-                          height: 200.h,
+                          'assets/pngs/Frame 2147229325.png',
+                          width:327.w,
+                          height:260.h,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -75,7 +75,7 @@ class _Body extends StatelessWidget {
                       // ─── Venue & Title row ───────────────────────
                       Text(
                         'The Velvet Room',
-                        style: AppText.l1?.cl(AppTheme.c.text.main!),
+                        style: AppText.l1bm?.cl(AppTheme.c.text.main!),
                       ),
                       Space.yf(6),
                       Row(
@@ -83,38 +83,36 @@ class _Body extends StatelessWidget {
                           Expanded(
                             child: Text(
                               'Free Entry Friday',
-                              style: AppText.h4b,
+                              style: AppText.h4b?.w(4),
                             ),
                           ),
                           // Points chip
                           Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 14.w,
-                              vertical: 8.h,
-                            ),
+                            padding:Space.all(12,7),
+                          
                             decoration: BoxDecoration(
                               color: AppTheme.c.primary.main,
                               borderRadius: BorderRadius.circular(100.r),
                             ),
                             child: Text(
                               '500 PTS',
-                              style: AppText.l1b?.cl(AppTheme.c.white!),
+                              style: AppText.l1bm?.cl(AppTheme.c.white!),
                             ),
                           ),
                         ],
                       ),
 
-                      Space.yf(24),
+                      Space.yf(16),
 
                       // ─── QR Code card ────────────────────────────
                       Container(
                         width: double.infinity,
-                        padding: Space.all(20),
+                        padding: Space.all(23.5,18),
                         decoration: BoxDecoration(
                           color: AppTheme.c.background.main,
-                          borderRadius: BorderRadius.circular(16.r),
+                          borderRadius: BorderRadius.circular(15.r),
                           border: Border.all(
-                            color: AppTheme.c.lightGrey.main!,
+                            color: AppTheme.c.background.main!,
                             width: 1.w,
                           ),
                         ),
@@ -124,9 +122,11 @@ class _Body extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(12.r),
                               child: Image.asset(
-                                'assets/pngs/qr_code.png',
-                                width: double.infinity,
+                                'assets/pngs/QR Code (1).png',
+                                // width:280.w,
+                                // height: 280.h,
                                 fit: BoxFit.contain,
+                                
                               ),
                             ),
 
@@ -135,21 +135,21 @@ class _Body extends StatelessWidget {
                             // Voucher ID
                             Text(
                               'Voucher ID: VYB-882-901',
-                              style: AppText.l1?.cl(AppTheme.c.text.main!),
+                              style: AppText.b1!.s(15.sp).w(4).cl(AppTheme.c.text.main!),
                             ),
                           ],
                         ),
                       ),
 
-                      Space.yf(24),
+                      Space.yf(16),
 
                       // ─── How to Use ──────────────────────────────
                       Text(
                         'How to Use',
-                        style: AppText.b1b,
+                        style: AppText.b1?.w(4),
                       ),
 
-                      Space.yf(12),
+                      Space.yf(8),
 
                       Column(
                         children: _howToUse
@@ -161,14 +161,14 @@ class _Body extends StatelessWidget {
                                   children: [
                                     SvgPicture.asset(
                                       AppStaticData.checked,
-                                      width: 20.w,
-                                      height: 20.w,
+                                      width: 18.w,
+                                      height: 18.h,
                                     ),
-                                    Space.xf(10),
+                                    Space.xf(8),
                                     Expanded(
                                       child: Text(
                                         item['text']!,
-                                        style: AppText.b2
+                                        style: AppText.l1?.w(4)
                                             ?.cl(AppTheme.c.text.main!),
                                       ),
                                     ),
@@ -188,7 +188,7 @@ class _Body extends StatelessWidget {
                         hasShadow: false,
                       ),
 
-                      Space.yf(32),
+                      Space.yf(16),
                     ],
                   ),
                 ),
