@@ -9,4 +9,5 @@ abstract class AppRoutes {
   static const rewardsdetail = '/rewardsdetail';
   static const support = '/support';
   static const privacyPolicy = '/privacy-policy';
+  static const emergencyServices = '/emergency-services';
 }

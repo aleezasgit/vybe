@@ -1,6 +1,5 @@
 part of '../faq.dart';
 
-
 class _Body extends StatelessWidget {
   const _Body();
 
@@ -10,49 +9,42 @@ class _Body extends StatelessWidget {
     final state = context.watch<_ScreenState>();
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(AppStaticData.appBg),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            padding: Space.hf(24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Space.yf(12),
+      appBar: CustomAppBar(title: 'FAQs'),
+      extendBodyBehindAppBar: true,
+    
+      body: AppBackground(
+        includeTopPadding: true,
+        includeBottomPadding: false,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Space.yf(12),
 
-                // ─── FAQ Cards ───────────────────────────────────────
-                ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: _faqs.length,
-                  separatorBuilder: (_, __) => Space.yf(10),
-                  itemBuilder: (context, index) {
-                    return _FaqCard(
-                      question: _faqs[index]['question']!,
-                      answer: _faqs[index]['answer']!,
-                      isExpanded: state.expandedIndices.contains(index),
-                      onTap: () => state.onTileToggled(index),
-                    );
-                  },
-                ),
+              // ─── FAQ Cards ───────────────────────────────────────
+              ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: _faqs.length,
+                separatorBuilder: (_, __) => Space.yf(10),
+                itemBuilder: (context, index) {
+                  return _FaqCard(
+                    question: _faqs[index]['question']!,
+                    answer: _faqs[index]['answer']!,
+                    isExpanded: state.expandedIndices.contains(index),
+                    onTap: () => state.onTileToggled(index),
+                  );
+                },
+              ),
 
-              ],
-            ),
+              Space.yf(32),
+            ],
           ),
         ),
       ),
     );
   }
 }
-
-
-
 
 class _FaqCard extends StatelessWidget {
   final String question;
@@ -75,7 +67,7 @@ class _FaqCard extends StatelessWidget {
         duration: UIProps.duration,
         curve: Curves.easeInOut,
         width: double.infinity,
-        padding: Space.all(16),
+        padding: Space.all(16, 12),
         decoration: BoxDecoration(
           color: AppTheme.c.background.main,
           borderRadius: BorderRadius.circular(12.r),
@@ -88,10 +80,7 @@ class _FaqCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                  child: Text(
-                    question,
-                    style: AppText.b1bm,
-                  ),
+                  child: Text(question, style: AppText.b1bm),
                 ),
                 Space.xf(22),
                 AnimatedRotation(

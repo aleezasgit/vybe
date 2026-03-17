@@ -9,91 +9,73 @@ class _Body extends StatelessWidget {
     final state = context.watch<_ScreenState>();
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(AppStaticData.appBg),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            padding: Space.hf(24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Space.yf(12),
+      appBar: CustomAppBar(title: 'Settings'),
+      extendBodyBehindAppBar: true,
+      body: AppBackground(
+        includeTopPadding: true,
+        includeBottomPadding: false,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Space.yf(12),
 
-                // ─── User Card ───────────────────────────────────────
-                const _UserCard(),
+              // ─── User Card ─────────────────────────────────────────
+              const _UserCard(),
 
-                Space.yf(16),
+              Space.yf(16),
 
-                // ─── Toggle Tiles ────────────────────────────────────
-                _ToggleTile(
-                  label: 'Share location',
-                  value: state.shareLocation,
-                  onChanged: state.toggleShareLocation,
-                ),
-                Space.yf(12),
-                _ToggleTile(
-                  label: 'Ghoost Check-in mode',
-                  value: state.ghostCheckInMode,
-                  onChanged: state.toggleGhostCheckIn,
-                ),
+              // ─── Toggle Tiles ──────────────────────────────────────
+              _ToggleTile(
+                label: 'Share location',
+                value: state.shareLocation,
+                onChanged: state.toggleShareLocation,
+              ),
+              Space.yf(12),
+              _ToggleTile(
+                label: 'Ghoost Check-in mode',
+                value: state.ghostCheckInMode,
+                onChanged: state.toggleGhostCheckIn,
+              ),
 
-                Space.yf(12),
+              Space.yf(12),
 
-                // ─── Arrow Tiles ─────────────────────────────────────
-                _OptionTile(
-                  label: 'Vybe Guardian Network',
-                  onTap: () {},
-                ),
-                Space.yf(12),
-                _OptionTile(
-                  label: 'Send Emergency Alert',
-                  onTap: () {},
-                ),
-                Space.yf(12),
-                _OptionTile(
-                  label: 'Privacy Policy',
-                  onTap: () {},
-                ),
-                Space.yf(12),
-                _OptionTile(
-                  label: 'Data Management',
-                  onTap: () {},
-                ),
+              // ─── Arrow Tiles ───────────────────────────────────────
+              _OptionTile(label: 'Vybe Guardian Network', onTap: () {}),
+              Space.yf(12),
+              _OptionTile(label: 'Send Emergency Alert', onTap: () {}),
+              Space.yf(12),
+              _OptionTile(label: 'Privacy Policy', onTap: () {}),
+              Space.yf(12),
+              _OptionTile(label: 'Data Management', onTap: () {}),
 
-                Space.yf(16),
+              Space.yf(16),
 
-                // ─── Delete Account ──────────────────────────────────
-                AppButton(
-                  label: 'Delete Account',
-                  onPressed: () {},
-                  backgroundColor: AppTheme.c.error.main,
-                  iconPath: 'assets/svgs/trash.svg',
-                  iconColor: AppTheme.c.white,
-                  buttonType: ButtonType.primaryWithIconLeft,
-                  hasShadow: false,
-                ),
+              // ─── Delete Account ────────────────────────────────────
+              AppButton(
+                label: 'Delete Account',
+                onPressed: () {},
+                backgroundColor: AppTheme.c.error.main,
+                iconPath: 'assets/svgs/trash.svg',
+                iconColor: AppTheme.c.white,
+                buttonType: ButtonType.primaryWithIconLeft,
+                hasShadow: false,
+              ),
 
-                Space.yf(12),
+              Space.yf(12),
 
-                // ─── Logout ──────────────────────────────────────────
-                AppButton(
-                  label: 'Logout',
-                  onPressed: () {},
-                  buttonType: ButtonType.primaryWithIconLeft,
-                  iconPath: 'assets/svgs/logout.svg',
-                  iconColor: AppTheme.c.white,
-                  hasShadow: true,
-                ),
+              // ─── Logout ────────────────────────────────────────────
+              AppButton(
+                label: 'Logout',
+                onPressed: () {},
+                buttonType: ButtonType.primaryWithIconLeft,
+                iconPath: 'assets/svgs/logout.svg',
+                iconColor: AppTheme.c.white,
+                hasShadow: true,
+              ),
 
-                Space.yf(32),
-              ],
-            ),
+              Space.yf(32),
+            ],
           ),
         ),
       ),
@@ -118,30 +100,23 @@ class _UserCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Avatar
           Container(
             width: 42.w,
-            height: 42.w,
+            height: 42.h,
             decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/pngs/Ellipse 1990.png'),
+                fit: BoxFit.cover,
+              ),
               shape: BoxShape.circle,
             ),
-            child: Image.asset(
-              'assets/pngs/Ellipse 1990.png',
-              fit: BoxFit.cover,
-            ),
           ),
-
           Space.xf(10),
-
-          // Name & Email
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Eoin Morgan',
-                  style: AppText.b1b?.cl(AppTheme.c.white!),
-                ),
+                Text('Eoin Morgan', style: AppText.b1b?.cl(AppTheme.c.white!)),
                 Space.yf(2),
                 Text(
                   'eoinmorgan224@gmail.com',
@@ -151,24 +126,16 @@ class _UserCard extends StatelessWidget {
               ],
             ),
           ),
-
           Space.xf(40),
-
-          // Edit Button
           GestureDetector(
             onTap: () {},
             child: Container(
               padding: Space.all(16, 7),
               decoration: BoxDecoration(
-               gradient: UIProps.primaryGradient,
-                
-               
+                gradient: UIProps.primaryGradient,
                 borderRadius: BorderRadius.circular(16.r),
               ),
-              child: Text(
-                'Edit',
-                style: AppText.l1bm?.cl(AppTheme.c.white!),
-              ),
+              child: Text('Edit', style: AppText.l1bm?.cl(AppTheme.c.white!)),
             ),
           ),
         ],
@@ -200,26 +167,14 @@ class _ToggleTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppTheme.c.background.main,
         borderRadius: BorderRadius.circular(16.r),
-        border: Border.all(
-          color: AppTheme.c.lightGrey.main!,
-          width: 1.w,
-        ),
+        border: Border.all(color: AppTheme.c.lightGrey.main!, width: 1.w),
       ),
       child: Row(
         children: [
-          Expanded(
-            child: Text(
-              label,
-              style: AppText.b1bm,
-            ),
-          ),
-          Switch(
+          Expanded(child: Text(label, style: AppText.b1bm)),
+          VybeSwitch(
             value: value,
             onChanged: onChanged,
-            activeColor: AppTheme.c.white,
-            activeTrackColor: AppTheme.c.primary.main,
-            inactiveThumbColor: AppTheme.c.background.shade100,
-            inactiveTrackColor: AppTheme.c.background.main,
           ),
         ],
       ),
@@ -235,10 +190,7 @@ class _OptionTile extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
 
-  const _OptionTile({
-    required this.label,
-    required this.onTap,
-  });
+  const _OptionTile({required this.label, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -250,23 +202,15 @@ class _OptionTile extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppTheme.c.background.main,
           borderRadius: BorderRadius.circular(16.r),
-          border: Border.all(
-            color: AppTheme.c.lightGrey.main!,
-            width: 1.w,
-          ),
+          border: Border.all(color: AppTheme.c.lightGrey.main!, width: 1.w),
         ),
         child: Row(
           children: [
-            Expanded(
-              child: Text(
-                label,
-                style: AppText.b1,
-              ),
-            ),
+            Expanded(child: Text(label, style: AppText.b1)),
             SvgPicture.asset(
               AppStaticData.arrowRight,
               width: 23.w,
-              height: 23.w,
+              height: 23.h,
             ),
           ],
         ),

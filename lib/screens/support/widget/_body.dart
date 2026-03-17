@@ -8,53 +8,40 @@ class _Body extends StatelessWidget {
     App.init(context);
 
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(AppStaticData.appBg),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomAppBar(title: 'Support'),
+      appBar: CustomAppBar(title: 'Support'),
+      extendBodyBehindAppBar: true,
+      body: AppBackground(
+        includeTopPadding: true,
+        includeBottomPadding: false,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Space.yf(24),
 
-              Space.yf(24),
-
-              Padding(
-                padding: Space.hf(24),
-                child: Column(
-                  children: [
-                    _SupportTile(
-                      iconPath: 'assets/svgs/call.svg',
-                      iconBgColor: AppTheme.c.primary.main!,
-                      title: 'Phone number',
-                      subtitle: '00-123-456-789',
-                      onTap: () {},
-                    ),
-                    Space.yf(12),
-                    _SupportTile(
-                      iconPath: 'assets/svgs/direct-inbox.svg',
-                      iconBgColor: AppTheme.c.secondary.main!,
-                      title: 'Email Address',
-                      subtitle: 'info@gmail.com',
-                      onTap: () {},
-                    ),
-                    Space.yf(12),
-                    _SupportTile(
-                      iconPath: 'assets/svgs/global.svg',
-                      iconBgColor: AppTheme.c.background.shade400!,
-                      title: 'Website',
-                      subtitle: 'assets/svgs/global.svg',
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            _SupportTile(
+              iconPath: 'assets/svgs/call.svg',
+              iconBgColor: AppTheme.c.primary.main!,
+              title: 'Phone number',
+              subtitle: '00-123-456-789',
+              onTap: () {},
+            ),
+            Space.yf(12),
+            _SupportTile(
+              iconPath: 'assets/svgs/direct-inbox.svg',
+              iconBgColor: AppTheme.c.secondary.main!,
+              title: 'Email Address',
+              subtitle: 'info@gmail.com',
+              onTap: () {},
+            ),
+            Space.yf(12),
+            _SupportTile(
+              iconPath: 'assets/svgs/global.svg',
+              iconBgColor: AppTheme.c.background.shade400!,
+              title: 'Website',
+              subtitle: 'www.website.com',
+              onTap: () {},
+            ),
+          ],
         ),
       ),
     );
@@ -88,7 +75,6 @@ class _SupportTile extends StatelessWidget {
         padding: Space.all(15),
         decoration: BoxDecoration(
           color: AppTheme.c.background.main,
-                    // color: Color( 0xFF050815),
           borderRadius: BorderRadius.circular(16.r),
           border: Border.all(
             color: AppTheme.c.lightGrey.main!,
@@ -97,7 +83,6 @@ class _SupportTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Icon circle
             Container(
               width: 42.w,
               height: 42.h,
@@ -117,10 +102,7 @@ class _SupportTile extends StatelessWidget {
                 ),
               ),
             ),
-
             Space.xf(10),
-
-            // Title + subtitle
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

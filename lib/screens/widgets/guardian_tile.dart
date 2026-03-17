@@ -62,31 +62,30 @@ class GuardianTile extends StatelessWidget {
               children: [
                 // Avatar
                 Container(
+                  width: 56.w,
+                  height: 56.h,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50.r),
+                     image: DecorationImage(
+                        image: AssetImage(imagePath),
+                        fit: BoxFit.cover,
+                      ),
+                    shape: BoxShape.circle,
                     border: Border.all(
                       color:AppTheme.c.lightGrey.main!,
                       width: 2.w,
+                     
                     ),
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50.r),
-                    child: Image.asset(
-                      imagePath,
-                      width: 56.w,
-                      height: 56.w,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                 
                 ),
             
                 // Status dot
                 Positioned(
                   bottom: 0,
-                  right: 0,
+                  right: 12,
                   child: Container(
                     width: 16.w,
-                    height: 16.w,
+                    height: 16.h,
                     decoration: BoxDecoration(
                       color: dotColor,
                       shape: BoxShape.circle,
@@ -138,7 +137,7 @@ class GuardianTile extends StatelessWidget {
             SvgPicture.asset(
               AppStaticData.arrowRight,
               width: 23.w,
-              height: 23.w,
+              height: 23.h,
             ),
           ],
         ),

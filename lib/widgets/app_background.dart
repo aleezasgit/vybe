@@ -39,7 +39,7 @@ class AppBackground extends StatelessWidget {
         right: horizontalPadding ?? 24.w,
         top:
             (verticalPadding ?? 0) +
-            (includeTopPadding ? mediaPadding.top + 16.h : 0),
+            (includeTopPadding ? mediaPadding.top: 0),
         bottom:
             (verticalPadding ?? 0) +
             (includeBottomPadding ? mediaPadding.bottom : 0),

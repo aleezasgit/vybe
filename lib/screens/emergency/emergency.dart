@@ -11,8 +11,8 @@ import 'package:vybe_app/widgets/design/buttons/app_button/app_button.dart';
 part 'widget/_body.dart';
 part '_state.dart';
 
-class RewardDetailScreen extends StatelessWidget {
-  const RewardDetailScreen({super.key});
+class EmergencyServicesScreen extends StatelessWidget {
+  const EmergencyServicesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -8,96 +8,83 @@ class _Body extends StatelessWidget {
     App.init(context);
 
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(AppStaticData.appBg),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SafeArea(
+      appBar: CustomAppBar(title: 'Privacy Policy'),
+      extendBodyBehindAppBar: true,
+      body: AppBackground(
+        includeTopPadding: true,
+        includeBottomPadding: false,
+        child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBar(title: 'Privacy Policy'),
+              Space.yf(20),
 
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: Space.hf(24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Space.yf(20),
-
-                      // ── 1. Information We Collect ──────────────────
-                      _SectionTitle(text: '1. Information We Collect'),
-                      Space.yf(8),
-                      _BodyText(
-                        text:
-                            'Vybe may collect certain information to provide and improve your experience on the app. This includes basic account details such as your name, username, email address, profile photo, optional age, and personal preferences like music type, venue type, and budget.',
-                      ),
-
-                      Space.yf(20),
-
-                      // ── 2. How We Use Your Information ────────────
-                      _SectionTitle(text: '2. How We Use Your Information'),
-                      Space.yf(8),
-                      _BodyText(text: 'We use your data to:'),
-                      Space.yf(10),
-                      _CheckItem(text: 'Provide real-time crowd insights'),
-                      _CheckItem(text: 'Personalize venue recommendations'),
-                      _CheckItem(text: 'Improve AI-powered suggestions'),
-                      _CheckItem(text: 'Reward points and track check-ins'),
-                      _CheckItem(text: 'Prevent fraud and misuse'),
-
-                      Space.yf(20),
-
-                      // ── 3. Location Privacy ────────────────────────
-                      _SectionTitle(text: '3. Location Privacy'),
-                      Space.yf(8),
-                      _BodyText(text: 'Location sharing is optional. You can:'),
-                      Space.yf(10),
-                      _CheckItem(text: 'Enable live sharing'),
-                      _CheckItem(text: 'Share anonymously'),
-                      _CheckItem(text: 'Disable location access at any time'),
-                      Space.yf(10),
-                      _BodyText(
-                        text:
-                            'We do not store precise location data long-term without consent.',
-                      ),
-
-                      Space.yf(20),
-
-                      // ── 4. Data Security ───────────────────────────
-                      _SectionTitle(text: '4. Data Security'),
-                      Space.yf(8),
-                      _BodyText(
-                        text:
-                            'We use industry-standard encryption and secure servers to protect your information. Data is encrypted in transit and at rest.',
-                      ),
-
-                      Space.yf(20),
-
-                      // ── 5. Your Rights ─────────────────────────────
-                      _SectionTitle(text: '5. Your Rights'),
-                      Space.yf(8),
-                      _BodyText(text: 'You can:'),
-                      Space.yf(10),
-                      _CheckItem(text: 'Update your profile information'),
-                      _CheckItem(text: 'Request deletion of your account and data'),
-                      _CheckItem(text: 'Opt out of marketing communications'),
-                      _CheckItem(text: 'Export your personal data'),
-                      _CheckItem(text: 'Withdraw consent for location sharing at any time'),
-                      Space.yf(10),
-                      _BodyText(
-                        text:
-                            'To exercise any of these rights, contact us at privacy@vybe.app.',
-                      ),
-
-                      Space.yf(32),
-                    ],
-                  ),
-                ),
+              // ── 1. Information We Collect ────────────────────────
+              _SectionTitle(text: '1. Information We Collect'),
+              Space.yf(8),
+              _BodyText(
+                text:
+                    'Vybe may collect certain information to provide and improve your experience on the app. This includes basic account details such as your name, username, email address, profile photo, optional age, and personal preferences like music type, venue type, and budget.',
               ),
+
+              Space.yf(16),
+
+              // ── 2. How We Use Your Information ───────────────────
+              _SectionTitle(text: '2. How We Use Your Information'),
+              Space.yf(8),
+              _BodyText(text: 'We use your data to:'),
+              Space.yf(8),
+              _CheckItem(text: 'Provide real-time crowd insights'),
+              _CheckItem(text: 'Personalize venue recommendations'),
+              _CheckItem(text: 'Improve AI-powered suggestions'),
+              _CheckItem(text: 'Reward points and track check-ins'),
+              _CheckItem(text: 'Prevent fraud and misuse'),
+
+              Space.yf(16),
+
+              // ── 3. Location Privacy ──────────────────────────────
+              _SectionTitle(text: '3. Location Privacy'),
+              Space.yf(8),
+              _BodyText(text: 'Location sharing is optional. You can:'),
+              Space.yf(8),
+              _CheckItem(text: 'Enable live sharing'),
+              _CheckItem(text: 'Share anonymously'),
+              _CheckItem(text: 'Disable location access at any time'),
+              Space.yf(8),
+              _BodyText(
+                text:
+                    'We do not store precise location data long-term without consent.',
+              ),
+
+              Space.yf(16),
+
+              // ── 4. Data Security ─────────────────────────────────
+              _SectionTitle(text: '4. Data Security'),
+              Space.yf(8),
+              _BodyText(
+                text:
+                    'We use industry-standard encryption and secure servers to protect your information. Data is encrypted in transit and at rest.',
+              ),
+
+              Space.yf(16),
+
+              // ── 5. Your Rights ───────────────────────────────────
+              _SectionTitle(text: '5. Your Rights'),
+              Space.yf(8),
+              _BodyText(text: 'You can:'),
+              Space.yf(8),
+              _CheckItem(text: 'Update your profile information'),
+              _CheckItem(text: 'Request deletion of your account and data'),
+              _CheckItem(text: 'Opt out of marketing communications'),
+              _CheckItem(text: 'Export your personal data'),
+              _CheckItem(text: 'Withdraw consent for location sharing at any time'),
+              Space.yf(8),
+              _BodyText(
+                text:
+                    'To exercise any of these rights, contact us at privacy@vybe.app.',
+              ),
+
+              Space.yf(32),
             ],
           ),
         ),
@@ -116,7 +103,7 @@ class _SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text, style: AppText.h5b);
+    return Text(text, style: AppText.b1?.w(4));
   }
 }
 
@@ -132,7 +119,7 @@ class _BodyText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: AppText.b2?.cl(AppTheme.c.text.shade800!),
+      style: AppText.l1?.w(4).cl(AppTheme.c.text.main!),
     );
   }
 }
@@ -154,14 +141,14 @@ class _CheckItem extends StatelessWidget {
         children: [
           SvgPicture.asset(
             AppStaticData.checked,
-            width: 20.w,
-            height: 20.w,
+            width: 18.w,
+            height: 18.h,
           ),
-          Space.xf(10),
+          Space.xf(8),
           Expanded(
             child: Text(
               text,
-              style: AppText.b2?.cl(AppTheme.c.text.shade800!),
+              style: AppText.l1?.w(4).cl(AppTheme.c.text.main!),
             ),
           ),
         ],

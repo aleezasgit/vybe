@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:vybe_app/configs/configs.dart';
 import 'package:vybe_app/screens/widgets/guardian_tile.dart';
 import 'package:vybe_app/statics/app_statics.dart';
+import 'package:vybe_app/widgets/app_background.dart';
+import 'package:vybe_app/widgets/core/app_bar/app_bar.dart';
 
 part 'widget/_body.dart';
 part '_state.dart';

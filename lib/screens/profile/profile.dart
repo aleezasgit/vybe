@@ -7,6 +7,7 @@ import 'package:vybe_app/configs/configs.dart';
 import 'package:vybe_app/router/routes.dart';
 import 'package:vybe_app/screens/widgets/confirm_bottomsheet.dart';
 import 'package:vybe_app/statics/app_statics.dart';
+import 'package:vybe_app/widgets/app_background.dart';
 import 'package:vybe_app/widgets/core/app_bar/app_bar.dart';
 import 'package:vybe_app/widgets/design/buttons/app_button/app_button.dart';
 import 'package:provider/provider.dart';

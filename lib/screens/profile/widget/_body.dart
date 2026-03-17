@@ -8,128 +8,120 @@ class _Body extends StatelessWidget {
     
 
     return Scaffold(
-        resizeToAvoidBottomInset: true,
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(AppStaticData.appBg),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SafeArea(
-          child: Column(
-            children: [
-              CustomAppBar(title: 'Profile'),
-              Expanded(
-                child: SingleChildScrollView(
-            padding: Space.hf(24),
-            child: Column(
+      appBar: CustomAppBar(title: 'Profile',type: AppBarType.withTextCenter,),
+      extendBodyBehindAppBar: true,
+      
+        
+      body: AppBackground(
+        includeTopPadding: true,
+        includeBottomPadding: false,
+        child: SingleChildScrollView(
+          
+              child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Space.yf(12),
-
-                // ─── User Card ───────────────────────────────────────
-                const _UserCard(),
-
-                Space.yf(16),
-
-                // ─── Unlock Premium Banner ───────────────────────────
-                const _PremiumBanner(),
-
-                Space.yf(24),
-
-                // ─── Menu Items ──────────────────────────────────────
-                _OptionTile(
-                  iconPath: 'assets/svgs/user-edit.svg',
-                  label: 'Edit Profile',
-                  onTap: () {},
-                ),
-                Space.yf(10),
-                _OptionTile(
-                  iconPath: 'assets/svgs/setting-2.svg',
-                  label: 'Settings',
-                  onTap: () {
-                    AppRoutes.settings.push(context);
-                  },
-                ),
-                Space.yf(10),
-                _OptionTile(
-                  iconPath: 'assets/svgs/forward-item.svg',
-                  label: 'Rewards',
-                  onTap: () {},
-                ),
-                Space.yf(10),
-                _OptionTile(
-                  iconPath: 'assets/svgs/mirror.svg',
-                  label: 'Support',
-                  onTap: () {
-                    // AppRoutes.support.push(context);
-                  },
-                ),
-                Space.yf(10),
-                _OptionTile(
-                  iconPath: 'assets/svgs/message-question.svg',
-                  label: "FAQ's",
-                  onTap: () {
-                    AppRoutes.faq.push(context);
-                  },
-                ),
-
-                Space.yf(28),
-
-                // ─── Delete Account ──────────────────────────────────
-                AppButton(
-                  label: 'Delete Account',
-                  onPressed: () {
-                    ConfirmBottomSheet.show(
-  context,
-  iconPath: 'assets/svgs/trash.svg',
-  iconBgColor: AppTheme.c.error.main!,
-  title: 'Are you sure?',
-  description: 'Do you really want to delete your account?',
-  confirmLabel: 'Delete',
-  confirmBgColor: AppTheme.c.error.main,
-  onConfirm: () { /* delete logic */ },
-);
-                  },
-                  backgroundColor: AppTheme.c.error.main,
-                  iconPath: 'assets/svgs/trash.svg',
-                  iconColor: AppTheme.c.white,
-                  buttonType: ButtonType.primaryWithIconLeft,
-                  hasShadow: false,
-                ),
-
-                Space.yf(12),
-
-                // ─── Logout ──────────────────────────────────────────
-                AppButton(
-                
-                  label: 'Logout',
-                  hasShadow: true,
-                  onPressed: () {
-                    ConfirmBottomSheet.show(
-  context,
-  iconPath: 'assets/svgs/logout.svg',
-  iconBgColor: AppTheme.c.primary.main!,
-  title: 'Are you sure?',
-  description: 'Do you really want to logout to your account?',
-  confirmLabel: 'Log Out',
-  onConfirm: () { /* logout logic */ },
-);
-                  },
-                  buttonType: ButtonType.primaryWithIconLeft,
-                  iconPath: 'assets/svgs/logout.svg',
-                  iconColor: AppTheme.c.white,
-                 
-                ),
-
-                Space.yf(32),
+        Space.yf(16),
+        
+        // ─── User Card ───────────────────────────────────────
+        const _UserCard(),
+        
+        Space.yf(16),
+        
+        // ─── Unlock Premium Banner ───────────────────────────
+        const _PremiumBanner(),
+        
+        Space.yf(24),
+        
+        // ─── Menu Items ──────────────────────────────────────
+        _OptionTile(
+          iconPath: 'assets/svgs/user-edit.svg',
+          label: 'Edit Profile',
+          onTap: () {},
+        ),
+        Space.yf(10),
+        _OptionTile(
+          iconPath: 'assets/svgs/setting-2.svg',
+          label: 'Settings',
+          onTap: () {
+            AppRoutes.settings.push(context);
+          },
+        ),
+        Space.yf(10),
+        _OptionTile(
+          iconPath: 'assets/svgs/forward-item.svg',
+          label: 'Rewards',
+          onTap: () {
+            AppRoutes.rewards.push( context);
+          },
+        ),
+        Space.yf(10),
+        _OptionTile(
+          iconPath: 'assets/svgs/mirror.svg',
+          label: 'Support',
+          onTap: () {
+             AppRoutes.support.push(context);
+          },
+        ),
+        Space.yf(10),
+        _OptionTile(
+          iconPath: 'assets/svgs/message-question.svg',
+          label: "FAQ's",
+          onTap: () {
+            AppRoutes.faq.push(context);
+          },
+        ),
+        
+        Space.yf(28),
+        
+        // ─── Delete Account ──────────────────────────────────
+        AppButton(
+          label: 'Delete Account',
+          onPressed: () {
+            ConfirmBottomSheet.show(
+            context,
+            iconPath: 'assets/svgs/trash.svg',
+            iconBgColor: AppTheme.c.error.main!,
+            title: 'Are you sure?',
+            description: 'Do you really want to delete your account?',
+            confirmLabel: 'Delete',
+            confirmBgColor: AppTheme.c.error.main,
+            onConfirm: () { /* delete logic */ },
+        );
+          },
+          backgroundColor: AppTheme.c.error.main,
+          iconPath: 'assets/svgs/trash.svg',
+          iconColor: AppTheme.c.white,
+          buttonType: ButtonType.primaryWithIconLeft,
+          hasShadow: false,
+        ),
+        
+        Space.yf(12),
+        
+        // ─── Logout ──────────────────────────────────────────
+        AppButton(
+        
+          label: 'Logout',
+          hasShadow: true,
+          onPressed: () {
+            ConfirmBottomSheet.show(
+            context,
+            iconPath: 'assets/svgs/logout.svg',
+            iconBgColor: AppTheme.c.primary.main!,
+            title: 'Are you sure?',
+            description: 'Do you really want to logout to your account?',
+            confirmLabel: 'Log Out',
+            onConfirm: () { /* logout logic */ },
+        );
+          },
+          buttonType: ButtonType.primaryWithIconLeft,
+          iconPath: 'assets/svgs/logout.svg',
+          iconColor: AppTheme.c.white,
+         
+        ),
+        
+        Space.yf(32),
               ],
-            ),
-                ),
               ),
-            ],
-          ),
         ),
       ),
     );
@@ -156,14 +148,13 @@ class _UserCard extends StatelessWidget {
           // Avatar
           Container(
             width: 42.w,
-            height: 42.w,
+            height: 42.h,
             decoration: const BoxDecoration(
+              image: DecorationImage(image: AssetImage('assets/pngs/Ellipse 1990.png'),
+              fit: BoxFit.cover),
               shape: BoxShape.circle,
             ),
-            child: Image.asset(
-              'assets/pngs/Ellipse 1990.png',
-              fit: BoxFit.cover,
-            ),
+           
           ),
 
           Space.xf(12),
@@ -280,7 +271,7 @@ class _OptionTile extends StatelessWidget {
         width: double.infinity,
         padding: Space.all(15),
         decoration: BoxDecoration(
-          color:Color( 0xFF050815),
+          color: AppTheme.c.background.main,
           borderRadius: BorderRadius.circular(16.r),
           border: Border.all(
             color: AppTheme.c.lightGrey.main!,
