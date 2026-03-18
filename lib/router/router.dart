@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vybe_app/configs/configs.dart';
 import 'package:vybe_app/router/routes.dart';
 import 'package:vybe_app/screens/Guardian/guardian.dart';
+import 'package:vybe_app/screens/data_and_privacy/data_privacy.dart';
 import 'package:vybe_app/screens/emergency/emergency.dart';
 import 'package:vybe_app/screens/faq/faq.dart';
 import 'package:vybe_app/screens/onboarding/onboarding.dart';
@@ -26,7 +27,7 @@ final Map<String, Widget Function(dynamic)> appRoutes = {
     AppRoutes.support: (_) => const SupportScreen(),
     AppRoutes.privacyPolicy: (_) => const PrivacyPolicyScreen(),
     AppRoutes.emergencyServices: (_) => const EmergencyServicesScreen(),
-
+    AppRoutes.dataPrivacy: (_) => const DataPrivacyScreen(),
 };
 
 void navigateToScreen(BuildContext context, Widget screen) {

@@ -87,14 +87,24 @@ class _Body extends StatelessWidget {
                 Space.yf(64),
 
                 // ── End Call button ────────────────────────────────
-                AppButton(
-                  label: 'End Call',
-                  onPressed: () {},
-                  backgroundColor: AppTheme.c.accent.red!,
-                  iconPath: 'assets/svgs/Container (4).svg',
-                  iconColor: AppTheme.c.white!,
-                  buttonType: ButtonType.primaryWithIconLeft,
-                  hasShadow: false,
+                // AppButton(
+                //   label: 'End Call',
+                //   onPressed: () {},
+                //   backgroundColor: AppTheme.c.accent.red!,
+                //   iconPath: 'assets/svgs/Container (4).svg',
+                //   iconColor: AppTheme.c.white!,
+                //   buttonType: ButtonType.primaryWithIconLeft,
+                //   hasShadow: false,
+                // ),
+
+                Space.yf(16),
+
+                _CustomButton(
+                  text: 'End Call',
+                  svgPath: 'assets/svgs/Container (4).svg',
+                  //width: 200.w,
+                  radius: 65.r,
+                  onTap: () {},
                 ),
 
                 Space.yf(32),
@@ -156,6 +166,56 @@ class _ActionButton extends StatelessWidget {
             style: AppText.l1bm?.cl(AppTheme.c.text.main!),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Custom Button
+// ─────────────────────────────────────────────────────────────────────────────
+
+class _CustomButton extends StatelessWidget {
+  final String text;
+  final String svgPath;
+  
+  final double radius;
+  final VoidCallback onTap;
+
+  const _CustomButton({
+    required this.text,
+    required this.svgPath,
+    required this.radius,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 279.w,
+        height: 68.h,
+      //  padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+        decoration: BoxDecoration(
+          color: AppTheme.c.accent.red,
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              svgPath,
+              width: 28.w,
+              height: 11.h,
+            ),
+            Space.xf(12),
+            Text(
+              text,
+              style: AppText.h5bm?.w(4).cl(AppTheme.c.white!),
+            ),
+          ],
+        ),
       ),
     );
   }
