@@ -3,8 +3,12 @@ import 'package:vybe_app/configs/configs.dart';
 import 'package:vybe_app/router/routes.dart';
 import 'package:vybe_app/screens/Guardian/guardian.dart';
 import 'package:vybe_app/screens/data_and_privacy/data_privacy.dart';
+import 'package:vybe_app/screens/data_visibility/data_visibility.dart';
 import 'package:vybe_app/screens/emergency/emergency.dart';
+import 'package:vybe_app/screens/emergency_alert/emergency_alert.dart';
 import 'package:vybe_app/screens/faq/faq.dart';
+import 'package:vybe_app/screens/gaurdian_permission/guardian_permissions.dart';
+
 import 'package:vybe_app/screens/onboarding/onboarding.dart';
 import 'package:vybe_app/screens/policy/policy.dart';
 import 'package:vybe_app/screens/profile/profile.dart';
@@ -28,6 +32,9 @@ final Map<String, Widget Function(dynamic)> appRoutes = {
     AppRoutes.privacyPolicy: (_) => const PrivacyPolicyScreen(),
     AppRoutes.emergencyServices: (_) => const EmergencyServicesScreen(),
     AppRoutes.dataPrivacy: (_) => const DataPrivacyScreen(),
+    AppRoutes.emergencyAlert: (_) => const EmergencyAlertScreen(),
+    AppRoutes.dataVisibility: (_) => const DataVisibilityScreen(),
+    AppRoutes.guardianPermissions: (_) => const GuardianPermissionsScreen(),
 };
 
 void navigateToScreen(BuildContext context, Widget screen) {

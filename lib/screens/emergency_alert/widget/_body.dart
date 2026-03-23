@@ -29,7 +29,7 @@ class _Body extends StatelessWidget {
 
               // ─── SOS PNG ─────────────────────────────────────────
               Image.asset(
-                'assets/pngs/sos_button.png',
+                'assets/pngs/club.png',
                 width: 220.w,
                 height: 220.w,
               ),
@@ -37,22 +37,22 @@ class _Body extends StatelessWidget {
               Space.yf(28),
 
               // ─── Need Help text ──────────────────────────────────
-              Text('Need Help?', style: AppText.h4b),
+              Text('Need Help?', style: AppText.h5b?.w(4)),
 
-              Space.yf(8),
+              Space.yf(6),
 
               Text(
                 'Your guardians will receive your location and a\nsafety alert immediately.',
-                style: AppText.b2?.w(4).cl(AppTheme.c.text.main!),
+                style: AppText.b1?.w(4).cl(AppTheme.c.text.main!),
                 textAlign: TextAlign.center,
               ),
 
-              Space.yf(20),
+              Space.yf(16),
 
               // ─── Active Guardians tile ───────────────────────────
               Container(
                 width: double.infinity,
-                padding: Space.all(15),
+                padding: Space.all(14),
                 decoration: BoxDecoration(
                   color: AppTheme.c.background.main,
                   borderRadius: BorderRadius.circular(16.r),
@@ -69,7 +69,7 @@ class _Body extends StatelessWidget {
                       extra: _extraGuardians,
                     ),
 
-                    Space.xf(12),
+                    Space.xf(8),
 
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +86,7 @@ class _Body extends StatelessWidget {
                 ),
               ),
 
-              Space.yf(10),
+              Space.yf(16),
 
               // ─── Share live location toggle ──────────────────────
               Container(
@@ -103,7 +103,7 @@ class _Body extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Text('Share live location', style: AppText.b1),
+                      child: Text('Share live location', style: AppText.b1bm),
                     ),
                     VybeSwitch(
                       value: state.shareLiveLocation,
@@ -113,7 +113,7 @@ class _Body extends StatelessWidget {
                 ),
               ),
 
-              Space.yf(10),
+              Space.yf(12),
 
               // ─── Send message to Guardian ────────────────────────
               _OptionTile(
@@ -153,7 +153,7 @@ class _StackedAvatars extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double avatarSize = 32;
+    const double avatarSize = 25;
     const double overlap = 20;
     final total = imagePaths.length;
     final width = avatarSize + (total - 1) * overlap + (extra > 0 ? overlap : 0);
@@ -179,11 +179,11 @@ class _StackedAvatars extends StatelessWidget {
                 width: avatarSize.w,
                 height: avatarSize.w,
                 decoration: BoxDecoration(
-                  color: AppTheme.c.primary.main,
+                  color:Color(0xFF1E293B),
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: AppTheme.c.background.main!,
-                    width: 1.5.w,
+                    width: 1.w,
                   ),
                 ),
                 child: Center(
@@ -253,7 +253,7 @@ class _OptionTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Expanded(child: Text(label, style: AppText.b1)),
+            Expanded(child: Text(label, style: AppText.b1bm)),
             SvgPicture.asset(
               AppStaticData.arrowRight,
               width: 23.w,

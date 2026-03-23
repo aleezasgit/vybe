@@ -192,13 +192,11 @@ class _OptionTile extends StatelessWidget {
   final String iconPath;
   final String label;
   final VoidCallback onTap;
-  final Color? iconColor;
 
   const _OptionTile({
     required this.iconPath,
     required this.label,
     required this.onTap,
-    this.iconColor,
   });
 
   @override

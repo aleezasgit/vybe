@@ -11,4 +11,7 @@ abstract class AppRoutes {
   static const privacyPolicy = '/privacy-policy';
   static const emergencyServices = '/emergency-services';
   static const dataPrivacy = '/data-privacy';
+  static const emergencyAlert = '/emergency-alert';
+  static const dataVisibility = '/data-visibility';
+  static const guardianPermissions = '/guardian-permissions';
 }

@@ -25,10 +25,6 @@ class GuardianTile extends StatelessWidget {
     App.init(context);
 
     // Active vs inactive styling
-    final Color borderColor = isActive
-        ? AppTheme.c.primary.main!
-        : AppTheme.c.lightGrey.main!;
-
     final Color relationBorderColor = isActive
         ? AppTheme.c.primary.main!
         : AppTheme.c.lightGrey.main!;
