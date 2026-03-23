@@ -29,12 +29,12 @@ class _Body extends StatelessWidget {
 
               // ─── SOS PNG ─────────────────────────────────────────
               Image.asset(
-                'assets/pngs/club.png',
-                width: 220.w,
-                height: 220.w,
+                'assets/pngs/sos.png',
+                width: 228.w,
+                height: 228.h,
               ),
 
-              Space.yf(28),
+              Space.yf(16),
 
               // ─── Need Help text ──────────────────────────────────
               Text('Need Help?', style: AppText.h5b?.w(4)),
