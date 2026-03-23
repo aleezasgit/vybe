@@ -69,7 +69,7 @@ class _Body extends StatelessWidget {
               ),
               Space.yf(12),
               GlobalAccessTile(
-                iconPath: 'assets/svgs/shield.svg',
+                iconPath: 'assets/svgs/direct-inbox.svg',
                 iconBgColor: AppTheme.c.secondary.main!,
                 label: 'Automatic SOS',
                 description: 'Notify if safety timer expires',
