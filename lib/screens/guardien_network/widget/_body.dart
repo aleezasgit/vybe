@@ -139,7 +139,7 @@ class _Body extends StatelessWidget {
                 iconPath: 'assets/svgs/user-add.svg',
                 iconColor: AppTheme.c.white!,
                 buttonType: ButtonType.primaryWithIconLeft,
-                hasShadow: false,
+                hasShadow: true,
               ),
                   ],
                 ),

@@ -96,4 +96,6 @@ class AppText {
     l2b = l2!.copyWith(fontWeight: b);
     l2bm = l2!.copyWith(fontWeight: FontWeight.w500);
   }
+
+  static TextStyle? w(int i) {}
 }

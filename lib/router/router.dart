@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vybe_app/configs/configs.dart';
 import 'package:vybe_app/router/routes.dart';
 import 'package:vybe_app/screens/Guardian/guardian.dart';
+import 'package:vybe_app/screens/add_gaurdian/add_new_guardian.dart';
 import 'package:vybe_app/screens/data_and_privacy/data_privacy.dart';
 import 'package:vybe_app/screens/data_visibility/data_visibility.dart';
 import 'package:vybe_app/screens/emergency/emergency.dart';
@@ -37,6 +38,7 @@ final Map<String, Widget Function(dynamic)> appRoutes = {
     AppRoutes.dataVisibility: (_) => const DataVisibilityScreen(),
     AppRoutes.guardianPermissions: (_) => const GuardianPermissionsScreen(),
     AppRoutes.guardianNetworks: (_) => const GuardianNetworksScreen(),
+    AppRoutes.addGuardian: (_) => const AddNewGuardianScreen(),
 };
 
 void navigateToScreen(BuildContext context, Widget screen) {
