@@ -8,6 +8,7 @@ import 'package:vybe_app/screens/emergency/emergency.dart';
 import 'package:vybe_app/screens/emergency_alert/emergency_alert.dart';
 import 'package:vybe_app/screens/faq/faq.dart';
 import 'package:vybe_app/screens/gaurdian_permission/guardian_permissions.dart';
+import 'package:vybe_app/screens/guardien_network/guardian_network.dart';
 
 import 'package:vybe_app/screens/onboarding/onboarding.dart';
 import 'package:vybe_app/screens/policy/policy.dart';
@@ -35,6 +36,7 @@ final Map<String, Widget Function(dynamic)> appRoutes = {
     AppRoutes.emergencyAlert: (_) => const EmergencyAlertScreen(),
     AppRoutes.dataVisibility: (_) => const DataVisibilityScreen(),
     AppRoutes.guardianPermissions: (_) => const GuardianPermissionsScreen(),
+    AppRoutes.guardianNetworks: (_) => const GuardianNetworksScreen(),
 };
 
 void navigateToScreen(BuildContext context, Widget screen) {

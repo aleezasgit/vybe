@@ -14,4 +14,5 @@ abstract class AppRoutes {
   static const emergencyAlert = '/emergency-alert';
   static const dataVisibility = '/data-visibility';
   static const guardianPermissions = '/guardian-permissions';
+  static const guardianNetworks = '/guardian-networks';
 }

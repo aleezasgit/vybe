@@ -1,4 +1,4 @@
-part of '../faq.dart';
+part of '../guardian_network.dart';
 
 class _Body extends StatelessWidget {
   const _Body();
@@ -9,115 +9,162 @@ class _Body extends StatelessWidget {
     final state = context.watch<_ScreenState>();
 
     return Scaffold(
-      appBar: CustomAppBar(title: 'FAQs'),
+      appBar: CustomAppBar(
+        title: 'Guardian Network',
+
+      ),
       extendBodyBehindAppBar: true,
-    
       body: AppBackground(
         includeTopPadding: true,
-        includeBottomPadding: false,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Space.yf(12),
+        includeBottomPadding: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            /// Scrollable Content
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Space.yf(16),
 
-              // ─── FAQ Cards ───────────────────────────────────────
-              ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: _faqs.length,
-                separatorBuilder: (_, __) => Space.yf(10),
-                itemBuilder: (context, index) {
-                  return _FaqCard(
-                    question: _faqs[index]['question']!,
-                    answer: _faqs[index]['answer']!,
-                    isExpanded: state.expandedIndices.contains(index),
-                    onTap: () => state.onTileToggled(index),
-                  );
-                },
+                    /// ─── Active Guardians ─────────────────────────
+                    _SectionLabel(text: 'Active Guardians'),
+                    Space.yf(12),
+
+                    /// Your existing Guardian Tile (use twice like SS)
+                    GuardianTile(
+                      name: 'Sarah Jenkins',
+                      relation: 'Best Friend',
+                      isActive: true,
+                      imagePath: 'assets/pngs/Ellipse 1990.png',
+                      onTap: () {
+                        
+                      },
+                    ),
+
+                    Space.yf(14),
+                    GuardianTile(
+                      name: 'Sarah Jenkins',
+                      relation: 'Best Friend',
+                      isActive: false,
+                      imagePath: 'assets/pngs/Ellipse 1990.png',
+                      onTap: () {
+                        
+                      },
+                    ),
+
+                    Space.yf(16),
+
+                    /// ─── Permissions ──────────────────────────────
+                    _SectionLabel(text: 'Permissions'),
+                    Space.yf(12),
+
+                    /// Share Location
+                    Container(
+                      width: double.infinity,
+                      padding: Space.all(15),
+                      decoration: BoxDecoration(
+                        color: AppTheme.c.background.main,
+                        borderRadius: BorderRadius.circular(16.r),
+                        border: Border.all(
+                          color: AppTheme.c.lightGrey.main!,
+                          width: 1.w,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset( 
+                            'assets/svgs/location.svg',
+                            width: 23.w,
+                            height: 23.h,
+                          ),
+                          Space.xf(10),
+                          Expanded(
+                            child: Text(
+                              'Share real-time location',
+                              style: AppText.b1bm,
+                            ),
+                          ),
+                          VybeSwitch(
+                            value: state.shareLiveLocation,
+                            onChanged: state.toggleShareLocation,
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    Space.yf(12),
+
+                    /// SOS Notification
+                    Container(
+                      width: double.infinity,
+                      padding: Space.all(15),
+                      decoration: BoxDecoration(
+                        color: AppTheme.c.background.main,
+                        borderRadius: BorderRadius.circular(16.r),
+                        border: Border.all(
+                          color: AppTheme.c.lightGrey.main!,
+                          width: 1.w,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/svgs/notification.svg',
+                            width: 23.w,
+                            height: 23.h,
+                          ),
+                          Space.xf(10),
+                          Expanded(
+                            child: Text(
+                              'SOS Notification',
+                              style: AppText.b1bm,
+                            ),
+                          ),
+                          VybeSwitch(
+                            value: state.sosEnabled,
+                            onChanged: state.toggleSos,
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    Space.yf(16),
+
+                    /// ─── Bottom Button ─────────────────────────────
+               AppButton(
+                label: 'Add new Guardian',
+                onPressed: () {},
+                iconPath: 'assets/svgs/user-add.svg',
+                iconColor: AppTheme.c.white!,
+                buttonType: ButtonType.primaryWithIconLeft,
+                hasShadow: false,
               ),
+                  ],
+                ),
+              ),
+            ),
 
-              Space.yf(32),
-            ],
-          ),
+            
+          
+          ],
         ),
       ),
     );
   }
 }
 
-class _FaqCard extends StatelessWidget {
-  final String question;
-  final String answer;
-  final bool isExpanded;
-  final VoidCallback onTap;
 
-  const _FaqCard({
-    required this.question,
-    required this.answer,
-    required this.isExpanded,
-    required this.onTap,
-  });
+class _SectionLabel extends StatelessWidget {
+  final String text;
+  const _SectionLabel({required this.text});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: AnimatedContainer(
-        duration: UIProps.duration,
-        curve: Curves.easeInOut,
-        width: double.infinity,
-        padding: Space.all(16, 12),
-        decoration: BoxDecoration(
-          color: AppTheme.c.background.main,
-          borderRadius: BorderRadius.circular(12.r),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // ─── Question row ─────────────────────────────────────
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Text(question, style: AppText.b1bm),
-                ),
-                Space.xf(22),
-                AnimatedRotation(
-                  turns: isExpanded ? 0.5 : 0.0,
-                  duration: UIProps.duration,
-                  curve: Curves.easeInOut,
-                  child: SvgPicture.asset(
-                    AppStaticData.upwardArrow,
-                    height: 20.h,
-                    width: 20.w,
-                  ),
-                ),
-              ],
-            ),
-
-            // ─── Answer (animated expand) ─────────────────────────
-            AnimatedCrossFade(
-              firstChild: const SizedBox.shrink(),
-              secondChild: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Space.yf(10),
-                  Text(
-                    answer,
-                    style: AppText.l1?.w(4).cl(AppTheme.c.text.main!),
-                  ),
-                ],
-              ),
-              crossFadeState: isExpanded
-                  ? CrossFadeState.showSecond
-                  : CrossFadeState.showFirst,
-              duration: UIProps.duration,
-              sizeCurve: Curves.easeInOut,
-            ),
-          ],
-        ),
-      ),
+    return Text(
+      text,
+      style: AppText.b1bm?.w(5).cl(AppTheme.c.text.main!),
     );
   }
 }

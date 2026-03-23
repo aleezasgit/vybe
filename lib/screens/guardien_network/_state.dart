@@ -1,14 +1,21 @@
-part of 'faq.dart';
+part of 'guardian_network.dart';
 
 class _ScreenState extends ChangeNotifier {
-  final Set<int> expandedIndices = {};
+  bool shareLiveLocation = true;
+  bool sosEnabled = true;
 
-  void onTileToggled(int index) {
-    if (expandedIndices.contains(index)) {
-      expandedIndices.remove(index);
-    } else {
-      expandedIndices.add(index);
-    }
+  void toggleShareLocation(bool value) {
+    shareLiveLocation = value;
     notifyListeners();
+  }
+
+  void toggleSos(bool value) {
+    sosEnabled = value;
+    notifyListeners();
+  }
+
+  void onAddGuardian() {
+    // TODO: Navigate or open modal
+    debugPrint('Add Guardian tapped');
   }
 }
