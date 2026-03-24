@@ -18,4 +18,5 @@ abstract class AppRoutes {
   static const addGuardian = '/add-guardian';
   static const selectContact = '/select-contact';
   static const guardianAccess = '/guardian-access';
+  static const editProfile = '/edit-profile';
 }
