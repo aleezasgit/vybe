@@ -12,7 +12,7 @@ class _Body extends StatelessWidget {
       extendBodyBehindAppBar: true,
       body: AppBackground(
         includeTopPadding: true,
-        includeBottomPadding: false,
+        includeBottomPadding: true,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

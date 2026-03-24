@@ -182,10 +182,23 @@ class _Body extends StatelessWidget {
             ),
 
             /// ─── Button ─────────────────────────
-            AppButton(
-              label: 'Confirm Guardian',
-              onPressed: state.onConfirm,
-            ),
+           AppButton(
+  label: 'Confirm Guardian',
+  onPressed: () {
+    ConfirmBottomSheets.show(
+      context,
+      iconPath: 'assets/svgs/checkk.svg',
+      iconBgColor: AppTheme.c.primary.main!, // purple circle
+      title: 'Guardian Added Successfully!',
+      description:
+          "We've sent an invitation to join your network.\nThey’ll appear as active once they accept.",
+      confirmLabel: 'Continue',
+      onConfirm: () {
+        Navigator.pop(context); // close sheet
+      },
+    );
+  },
+),
           ],
         ),
       ),
