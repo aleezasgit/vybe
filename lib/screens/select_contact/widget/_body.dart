@@ -32,7 +32,14 @@ class _Body extends StatelessWidget {
               Space.yf(16),
           
               /// ─── Search Bar (ADD HERE) ─────────
-              // TODO: Add Search Bar here
+              SearchField(
+  name: 'search_contact',
+  hint: 'Search',
+  fillColor: AppTheme.c.background.main, // matches your dark UI
+  borderColor: AppTheme.c.lightGrey.main!,
+  textColor: AppTheme.c.text.main!,
+  iconColor: AppTheme.c.text.main!,
+),
           
               Space.yf(16),
           
