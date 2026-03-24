@@ -64,8 +64,8 @@ class _Body extends StatelessWidget {
                             child: Center(
                               child: SvgPicture.asset(
                                 'assets/svgs/tick.svg',
-                                width: 9.w,
-                                height: 9.h,
+                                width: 6.w,
+                                height: 6.h,
                               ),
                             ),
                           ),
@@ -168,6 +168,7 @@ class _Body extends StatelessWidget {
                     GlobalAccessTile(
                       iconPath: 'assets/svgs/battery-charging.svg',
                       iconBgColor: AppTheme.c.white!,
+                     // iconcolor: AppTheme.c.black!,
                       label: 'See Nightlife History',
                       description: 'Past events and safe arrivals',
                       value: state.nightlifeHistory,

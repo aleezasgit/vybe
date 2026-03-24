@@ -9,6 +9,7 @@ import 'package:vybe_app/screens/emergency/emergency.dart';
 import 'package:vybe_app/screens/emergency_alert/emergency_alert.dart';
 import 'package:vybe_app/screens/faq/faq.dart';
 import 'package:vybe_app/screens/gaurdian_permission/guardian_permissions.dart';
+import 'package:vybe_app/screens/guardian_access/guardian_access.dart';
 import 'package:vybe_app/screens/guardien_network/guardian_network.dart';
 
 import 'package:vybe_app/screens/onboarding/onboarding.dart';
@@ -16,6 +17,7 @@ import 'package:vybe_app/screens/policy/policy.dart';
 import 'package:vybe_app/screens/profile/profile.dart';
 import 'package:vybe_app/screens/rewards/rewards.dart';
 import 'package:vybe_app/screens/rewards_detail/rewards_detail.dart';
+import 'package:vybe_app/screens/select_contact/select_contact.dart';
 import 'package:vybe_app/screens/settings/settings.dart';
 
 import 'package:vybe_app/screens/splash/splash.dart';
@@ -39,6 +41,8 @@ final Map<String, Widget Function(dynamic)> appRoutes = {
     AppRoutes.guardianPermissions: (_) => const GuardianPermissionsScreen(),
     AppRoutes.guardianNetworks: (_) => const GuardianNetworksScreen(),
     AppRoutes.addGuardian: (_) => const AddNewGuardianScreen(),
+    AppRoutes.selectContact: (_) => const SelectContact(),
+    AppRoutes.guardianAccess: (_) => const GuardianAccessScreen(),
 };
 
 void navigateToScreen(BuildContext context, Widget screen) {

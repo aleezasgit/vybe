@@ -12,6 +12,7 @@ class GlobalAccessTile extends StatelessWidget {
   final String description;
   final bool value;
   final ValueChanged<bool> onChanged;
+  final Color? iconcolor;
 
   const GlobalAccessTile({
     super.key,
@@ -21,6 +22,7 @@ class GlobalAccessTile extends StatelessWidget {
     required this.description,
     required this.value,
     required this.onChanged,
+    required, this.iconcolor
   });
 
   @override
@@ -51,7 +53,7 @@ class GlobalAccessTile extends StatelessWidget {
                 width: 20.w,
                 height: 20.h,
                 colorFilter: ColorFilter.mode(
-                  AppTheme.c.white!,
+                  iconcolor ?? AppTheme.c.black!,
                   BlendMode.srcIn,
                 ),
               ),

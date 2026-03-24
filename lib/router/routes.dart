@@ -16,4 +16,6 @@ abstract class AppRoutes {
   static const guardianPermissions = '/guardian-permissions';
   static const guardianNetworks = '/guardian-networks';
   static const addGuardian = '/add-guardian';
+  static const selectContact = '/select-contact';
+  static const guardianAccess = '/guardian-access';
 }
