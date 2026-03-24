@@ -15,7 +15,7 @@ class _Body extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(title: 'Reward Detail'),
       extendBodyBehindAppBar: true,
-      resizeToAvoidBottomInset: true,
+     
       body: AppBackground(
         includeTopPadding: true,
         includeBottomPadding: false,

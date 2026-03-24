@@ -1,5 +1,7 @@
 part of '../select_contact.dart';
 
+
+
 class _Body extends StatelessWidget {
   const _Body();
 
@@ -8,39 +10,78 @@ class _Body extends StatelessWidget {
     App.init(context);
 
     return Scaffold(
-      appBar: CustomAppBar(title: 'Add New Guardian'),
+      appBar: CustomAppBar(
+        title: 'Add New Guardian',
+      ),
       extendBodyBehindAppBar: true,
       body: AppBackground(
         includeTopPadding: true,
-        includeBottomPadding: true,
+        includeBottomPadding: false,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Space.yf(12),
-              Text('Select Contact', style: AppText.b1b),
-              Space.yf(8),
+              Space.yf(16),
+          
+              /// ─── Title ─────────────────────────
+              Text(
+                'Select Contact',
+                style: AppText.h5bm,
+              ),
+          
+              Space.yf(16),
+          
+              /// ─── Search Bar (ADD HERE) ─────────
+              // TODO: Add Search Bar here
+          
+              Space.yf(16),
+          
+              /// ─── Suggested Contacts ────────────
               Text(
                 'Suggested Contacts',
-                style: AppText.l1?.w(4).cl(AppTheme.c.text.main!),
+                style: AppText.b1bm?.cl(AppTheme.c.text.main!),
               ),
+          
+              Space.yf(16),
+          
+              /// ─── Contact Tiles ─────────────────
+          
+              _ContactTile(
+                initials: 'JD',
+                name: 'Jessica Davis',
+                phone: '+1 (555) 012-3456',
+              ),
+          
               Space.yf(12),
-
-              _ContactTile(name: 'Jessica Davis', phone: '+1(555) 012-3456', initials: 'JD'),
-              Space.yf(10),
-              _ContactTile(name: 'Ryan Taylor', phone: '+1(555) 987-6543', initials: 'RT'),
-              Space.yf(10),
-              _ContactTile(name: 'Maya Brown', phone: '+1(555) 234-5678', initials: 'MB'),
-              Space.yf(10),
-              _ContactTile(name: 'Alex Lee', phone: '+1(555) 456-7890', initials: 'AL'),
-              Space.yf(10),
-              _ContactTile(name: 'Chris Wilson', phone: '+1(555) 890-1234', initials: 'CW'),
-
-              Space.yf(32),
-              AppButton(
-                label: 'Add from Contacts',
-                onPressed: () {},
-                hasShadow: true,
+          
+              _ContactTile(
+                initials: 'RT',
+                name: 'Ryan Taylor',
+                phone: '+1 (555) 987-6543',
+              ),
+          
+              Space.yf(12),
+          
+              _ContactTile(
+                initials: 'MB',
+                name: 'Maya Brown',
+                phone: '+1 (555) 234-5678',
+              ),
+          
+              Space.yf(12),
+          
+              _ContactTile(
+                initials: 'AL',
+                name: 'Alex Lee',
+                phone: '+1 (555) 456-7890',
+              ),
+          
+              Space.yf(12),
+          
+              _ContactTile(
+                initials: 'CW',
+                name: 'Chris Wilson',
+                phone: '+1 (555) 890-1234',
               ),
             ],
           ),
@@ -51,62 +92,80 @@ class _Body extends StatelessWidget {
 }
 
 class _ContactTile extends StatelessWidget {
+  final String initials;
   final String name;
   final String phone;
-  final String initials;
 
   const _ContactTile({
+    required this.initials,
     required this.name,
     required this.phone,
-    required this.initials,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: Space.all(14),
+      padding: Space.all(12, 12),
       decoration: BoxDecoration(
-        color: AppTheme.c.background.shade200,
+        color: AppTheme.c.background.main,
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
           color: AppTheme.c.lightGrey.main!,
-          width: 1.w,
+          width: 1,
         ),
       ),
       child: Row(
         children: [
+          /// ─── Avatar ─────────────────────────
           Container(
-            width: 44.w,
-            height: 44.w,
+            width: 48.w,
+            height: 48.h,
             decoration: BoxDecoration(
-              color: AppTheme.c.lightGrey.main,
               shape: BoxShape.circle,
+              border: Border.all(
+                color: AppTheme.c.lightGrey.main!,
+              ),
             ),
             child: Center(
               child: Text(
                 initials,
-                style: AppText.b1b?.cl(AppTheme.c.white!),
+                style: AppText.h5b?.cl(  AppTheme.c.text.main!),
               ),
             ),
           ),
+
           Space.xf(12),
+
+          /// ─── Name & Phone ───────────────────
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name, style: AppText.b1b),
-                Space.yf(2),
+                Text(
+                  name,
+                  style: AppText.b1b?.w(6),
+                ),
+                //Space.yf(4),
                 Text(
                   phone,
-                  style: AppText.l1?.w(4).cl(AppTheme.c.text.main!),
+                  style: AppText.l2?.cl(AppTheme.c.text.main!),
                 ),
               ],
             ),
           ),
-          AppButton(
-            label: 'Add',
-            onPressed: () {},
-            hasShadow: false,
+
+          /// ─── Add Button ─────────────────────
+          Container(
+            padding:Space.all(16,7),
+            
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100.r),
+              gradient: UIProps.primaryGradient,
+            ),
+            child: Text(
+              'Add',
+              style: AppText.l1bm?.cl(AppTheme.c.white!),
+            ),
           ),
         ],
       ),
